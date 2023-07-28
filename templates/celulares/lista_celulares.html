@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Lista de Celulares{% endblock %}
+
+{% block conteudo %}
+    <h2>Lista de Celulares</h2>
+    <ul class="celulares-lista">
+        {% for celular in celulares %}
+        <li>
+            <strong>{{ celular }}</strong>
+            <img src="{{ celular.foto.url }}" alt="Foto do Celular {{ celular }}" width="100px" height="100px">
+            <p>Marca: {{ celular.marca }}</p>
+            <p>Modelo: {{ celular.modelo }}</p>
+            <p>Preço: R$ {{ celular.preco }}</p>
+            <p>Data de Lançamento: {{ celular.data_lancamento }}</p>
+            <a href="{% url 'detalhe_celular' celular.id %}">Detalhar</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'novo_celular' %}" class="detalhar">Novo Celular</a>
+{% endblock %}

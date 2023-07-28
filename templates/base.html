@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block titulo %}{% endblock titulo %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Loja de Celulares</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'lista_celulares' %}">Início</a></li>
+        </ul>
+    </nav>
+  </header>
+  <main>
+    {% block conteudo %}{% endblock conteudo %}
+  </main>
+</body>
+</html>
